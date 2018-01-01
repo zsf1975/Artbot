@@ -6,7 +6,7 @@ from utils import ProgressReport, fill_image
 
 def dots(source_img):
     step = 20
-    max_radius = 12
+    max_radius = 14
     background_color = [255, 255, 255]
     circle_color = [0, 0, 0]
 
@@ -19,7 +19,7 @@ def dots(source_img):
     status_print = ProgressReport(size_y, 'dots effect')
 
     for y in range(0, size_y, step):
-        for x in range(0, size_x, step):
+        for x in range(int(((y/step)%2)*step/2), size_x, step):
             rgb_avg = int(np.mean(source_img[y:y+step, x:x+step, 0:2]))
             radius = int((( 255.0 - rgb_avg) / 255.0) * max_radius)
             xcoord = int((x + step/2.0))
