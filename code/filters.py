@@ -43,7 +43,6 @@ def conv_filter(source_img, filter_kernel, description):
         (kernel_w1, kernel_w2), (0, 0)), mode='edge') 
 
     status_print = ProgressReport(y_max + kernel_size, description)
-    report_step = status_print.get_step()
 
     for y in range(0, y_max, 1):
         for x in range(0, x_max, 1):
@@ -75,8 +74,9 @@ def conv_filter(source_img, filter_kernel, description):
             target_img[y, x, 1] = sg
             target_img[y, x, 2] = sb
 
-        if(y % report_step == 0):
+        if(y%10 == 0):
             status_print.update(y)
+
 
     status_print.finished()
     return target_img
