@@ -94,3 +94,26 @@ This is traditional halftone style algorithm that produces black dots that vary 
 Detail
 
 ![1:1 detail](./sample_images/fr_dots_detail_800.jpg "dots detail")
+
+
+## triangles
+
+This algorithm does "traditional" triangulation of the image and colors it using grayscale values. 
+
+![Full image](./sample_images/fr_triangles_800.jpg "triangles full image")
+
+Detail
+
+![1:1 detail](./sample_images/fr_triangles_detail_800.jpg "triangles detail")
+
+
+## color_triangles
+
+This algorithm produces color version of the triangles effect. 
+
+![Full image](./sample_images/fr_color_triangles_800.jpg "color_triangles full image")
+
+Detail
+
+![1:1 detail](./sample_images/fr_color_triangles_detail_800.jpg "color_triangles detail")
+

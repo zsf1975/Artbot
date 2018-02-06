@@ -10,6 +10,7 @@ from dots import dots
 from circles import circles
 from mono_scribble import mono_scribble
 from color_scribble import color_scribble
+from triangulate import triangulate
 
 
 def main(argv):
@@ -61,6 +62,18 @@ def main(argv):
         tmp = cv2.resize(img, (0,0), fx=scaling, fy=scaling)
         result = color_scribble(tmp)
 
+    elif(effect == "color_triangles"):
+        print("Processing image")
+        scaling = 4000 / max(img.shape[0], img.shape[1])
+        tmp = cv2.resize(img, (0,0), fx=scaling, fy=scaling)
+        result = triangulate(tmp, BW=False)
+   
+    elif(effect == "triangles"):
+        print("Processing image")
+        scaling = 4000 / max(img.shape[0], img.shape[1])
+        tmp = cv2.resize(img, (0,0), fx=scaling, fy=scaling)
+        result = triangulate(tmp, BW=True)
+
     else: 
         print("Wrong effect name!")
         print_help()
@@ -94,6 +107,10 @@ Effects:
         Draws single color scribble line on white background.
     color_scribble
         Draws colored line on black background. 
+    triangles
+        Grayscale triangulated image
+    color_triangles
+        Color version of triangles effect. 
     """
     print(docstring)
 
